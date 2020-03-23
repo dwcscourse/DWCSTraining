@@ -15,7 +15,7 @@ namespace CSharpCourseR
             //Homework
             //  {1,1,1,2,2}
             // 1 - 3 times, 2 - 2 times
-
+            Console.WriteLine("Ani");
             Console.WriteLine( "fhsfhsdhj");
             int[] numbers = new int[4];
             for (int i = 0; i < numbers.Length; i++)
