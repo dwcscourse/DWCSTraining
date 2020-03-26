@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Utils;
+using System.Linq;
 
 namespace HomeworkTsveti
 {
@@ -56,10 +58,8 @@ namespace HomeworkTsveti
         // 1 - 3 times, 2 - 2 times
         public void CountNumbersOfArray(int[] numbers)
         {
-            Array.Sort(numbers);
-
-            int count = 1;
-
+            var dictionary = new Dictionary<int, int>();
+            Array.ForEach(numbers, element => dictionary[element] = (dictionary.ContainsKey(element) ? dictionary[element] : 0) + 1);
             for (int i = 0; i < numbers.Length - 1; i++)
             {
                 if (numbers[i] == numbers[i + 1])
