@@ -8,7 +8,6 @@ namespace ModernSchool
 {
     class LessonTime
     {
-        //
         public DateTime startingHour;
         public DateTime endHour;
 
