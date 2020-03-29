@@ -13,8 +13,6 @@ namespace ModernSchool
             // trima studenti i dvama uchiteli  
             //Compare?????
 
-            Console.WriteLine("What's going on?");
-
             List<LessonTime> scheduleRosen = new List<LessonTime>();
             scheduleRosen.Add(new LessonTime(14, 16));
             scheduleRosen.Add(new LessonTime(9, 11));
