@@ -12,6 +12,7 @@ namespace ModernSchool
         {
            // trima studenti i dvama uchiteli  
            //Compare?????
+           //
         }
     }
 }
