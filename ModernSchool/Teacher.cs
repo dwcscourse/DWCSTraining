@@ -17,12 +17,16 @@ namespace ModernSchool
             this.schedule = schedule;
         }
 
-        public void Teach(List<Student>students)
+        public void Teach(List<Student> students)
         {
             foreach (var student in students)
             {
-                student.Learn(lesson,schedule[0]);
+                foreach (var time in schedule)
+                {
+                    student.Learn(lesson, time);
+                }
+                //student.Learn(lesson,schedule[0]);
             }
         }
-   }
+    }
 }
