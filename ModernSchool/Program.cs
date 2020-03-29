@@ -31,7 +31,7 @@ namespace ModernSchool
             Student Tsveti = new Student("Tsveti", new LessonTime(12, 14), new LessonTime(10, 12));
 
             List<Student> students = new List<Student>(new Student[] { Ani, Neli, Tsveti });
-                
+
             Rosen.Teach(students);
             Niki.Teach(students);
 
@@ -39,10 +39,6 @@ namespace ModernSchool
             {
                 student.PrintStudentResult();
             }
-
-
-
-            
         }
     }
 }

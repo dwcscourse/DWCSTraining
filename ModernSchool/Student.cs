@@ -10,7 +10,7 @@ namespace ModernSchool
     {
         private List<LessonTime> busyHours = new List<LessonTime>();
         private List<string> lessonsAttended = new List<string>();
-        private string name; 
+        private string name;
 
         public Student(string name, LessonTime lesson1, LessonTime lesson2)
         {
@@ -34,7 +34,7 @@ namespace ModernSchool
 
         public void Learn(string lesson, LessonTime lessonTime)
         {
-            if(isFree(lessonTime))
+            if (isFree(lessonTime))
             {
                 lessonsAttended.Add(lesson);
                 busyHours.Add(lessonTime);
@@ -52,10 +52,8 @@ namespace ModernSchool
 
             foreach (var time in busyHours)
             {
-                Console.WriteLine($" and he is busy between {time.startingHour} and {time.endHour}");
+                Console.WriteLine($" and she/he is busy between {time.startingHour} and {time.endHour}");
             }
         }
-
-        
     }
 }

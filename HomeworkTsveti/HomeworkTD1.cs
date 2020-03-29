@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using Utils;
+using System.Linq;
 
 namespace HomeworkTsveti
 {
-    public class Homework1
+    public class HomeworkTD1
     {
 
         //Да се напише програма, която въвежда n цели числаи проверява дали сред тях съществува число, 
@@ -51,6 +53,49 @@ namespace HomeworkTsveti
 
         //Масив - въвеждаме стойностите от конзолата, на екрана извеждаме най-голямата сума на два елемента от масива
 
+        //Homework
+        //  {1,1,1,2,2}
+        // 1 - 3 times, 2 - 2 times
+        public void CountNumbersOfArray(int[] numbers)
+        {
+            //var dictionary = new Dictionary<int, int>();
+            //Array.ForEach(numbers, element => dictionary[element] = (dictionary.ContainsKey(element) ? dictionary[element] : 0) + 1);
+
+            Array.Sort(numbers);
+            int count = 1;
+
+            for (int i = 0; i < numbers.Length - 1; i++)
+            {
+                if (numbers[i] == numbers[i + 1])
+                {
+                    count++;
+                }
+                else
+                {
+                    Console.WriteLine($"{numbers[i]} - {count}");
+                    count = 1;
+                }
+            }
+            //Print the last item
+            Console.WriteLine($"{numbers[numbers.Length - 1]} - {count}");
+
+            //int count = 1;
+            //for (int i = 1; i < numbers.Length; i++)
+            //{
+            //    if (numbers[i] == numbers[i - 1]) {
+            //        count++;
+            //    } else
+            //    {
+            //        Console.WriteLine($"{numbers[i - 1]} - {count}");
+            //        count = 1;
+            //    }
+
+            //    if (i == numbers.Length - 1)
+            //    {
+            //        Console.WriteLine($"{numbers[i]} - {count}");
+            //    }
+            //}
+        }
         private void SumOfTheTwoLargestElements()
         {
 

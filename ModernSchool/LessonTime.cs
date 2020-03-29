@@ -46,5 +46,4 @@ namespace ModernSchool
             return 0;
         }
     }
-
 }
