@@ -13,6 +13,7 @@ namespace ModernSchool
             // trima studenti i dvama uchiteli  
             //Compare?????
 
+            //fsfakjsg
             List<LessonTime> scheduleRosen = new List<LessonTime>();
             scheduleRosen.Add(new LessonTime(14, 16));
             scheduleRosen.Add(new LessonTime(9, 11));
