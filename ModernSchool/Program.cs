@@ -10,6 +10,7 @@ namespace ModernSchool
     {
         static void Main(string[] args)
         {
+            //
            // trima studenti i dvama uchiteli  
            //Compare?????
         }

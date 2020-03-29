@@ -8,6 +8,7 @@ namespace ModernSchool
 {
     class Teacher
     {
+        //
         private string lesson;
         private List<LessonTime> schedule = new List<LessonTime>();
 

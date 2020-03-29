@@ -8,6 +8,7 @@ namespace ModernSchool
 {
     class Student
     {
+        //
         private List<LessonTime> busyHours = new List<LessonTime>();
         private List<string> lessonsAttended = new List<string>();
 
