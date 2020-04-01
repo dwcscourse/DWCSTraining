@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee", "Employee\Employ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernSchool", "ModernSchool\ModernSchool.csproj", "{FA7ECA2C-5D4C-42DF-8E61-F7168D5FDFD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Casino", "Casino\Casino.csproj", "{A78A1802-19B6-45ED-B327-C2C2D031F064}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FA7ECA2C-5D4C-42DF-8E61-F7168D5FDFD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA7ECA2C-5D4C-42DF-8E61-F7168D5FDFD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA7ECA2C-5D4C-42DF-8E61-F7168D5FDFD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A78A1802-19B6-45ED-B327-C2C2D031F064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A78A1802-19B6-45ED-B327-C2C2D031F064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A78A1802-19B6-45ED-B327-C2C2D031F064}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A78A1802-19B6-45ED-B327-C2C2D031F064}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
