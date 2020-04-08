@@ -21,7 +21,7 @@ namespace Casino
                 return this.name;
             }
         }
-        
+       
         public int ThrowDice(Random rnd)
         {
             return rnd.Next(1, 7);            

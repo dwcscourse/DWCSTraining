@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Casino
 {
@@ -23,32 +22,27 @@ namespace Casino
 
             while (!haveWinner)
             {
-                List<int> thrownDices = new List<int>();
+                int countMax = 0;
 
                 foreach (var player in players)
                 {
                     int dice = player.ThrowDice(rnd);
-                    thrownDices.Add(dice);
 
                     Console.WriteLine($"{player.Name} throws {dice}");
 
-                    if (dice > max)
-                    {
-                        max = dice;
-                        winner = player.Name;
-                    }                                     
-                }
-
-                int countMax = 0;
-                foreach (var thrownDice in thrownDices)
-                {
-                    if (thrownDice == max)
+                    if (dice == max)
                     {
                         countMax++;
                     }
+                    else if (dice > max)
+                    {
+                        max = dice;
+                        winner = player.Name;
+                        countMax = 0;
+                    }
                 }
 
-                if (countMax > 1)
+                if (countMax >= 1)
                 {
                     haveWinner = false;
                     max = 0;
@@ -75,34 +69,33 @@ namespace Casino
             }
 
             Dictionary<string, int> dictionary = CountElementsOfList(winnersOfRounds);
-            dictionary = dictionary.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
-
-            int winnerScore = dictionary.ElementAt(0).Value;
             string gameWinner = "";
-
             List<Player> playersWithSameResults = new List<Player>();
+
+            int countMax = 0;
+            int maxWonRounds = 0;
 
             foreach (KeyValuePair<string, int> pair in dictionary)
             {
                 Console.WriteLine($"The score of {pair.Key} is {pair.Value}");
+                if (pair.Value > maxWonRounds)
+                {
+                    maxWonRounds = pair.Value;
+                    gameWinner = pair.Key;
+                    playersWithSameResults.Add(new Player(pair.Key));
+                    countMax = 0;
+                }
+                else if (pair.Value == maxWonRounds)
+                {
+                    countMax++;
+                    playersWithSameResults.Add(new Player(pair.Key));
+                }              
             }
 
-            if ((dictionary.Count > 1) && (dictionary.ElementAt(0).Value == dictionary.ElementAt(1).Value))
+            if (countMax >= 1)
             {
-                foreach (KeyValuePair<string, int> winner in dictionary)
-                {
-                    if (winner.Value == winnerScore)
-                    {
-                        playersWithSameResults.Add(new Player(winner.Key));
-                    }
-                }
-
                 Console.WriteLine("The players with the same maximum score, play another round !!!!!");
                 gameWinner = PlayRound(playersWithSameResults);
-            }
-            else
-            {
-                gameWinner = dictionary.ElementAt(0).Key;
             }
 
             return gameWinner;
