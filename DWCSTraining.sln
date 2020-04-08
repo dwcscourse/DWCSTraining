@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernSchool", "ModernSchoo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Casino", "Casino\Casino.csproj", "{A78A1802-19B6-45ED-B327-C2C2D031F064}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccount", "BankAccount\BankAccount.csproj", "{733225DD-D327-4711-B30E-33F71384BFEC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,10 +45,6 @@ Global
 		{A78A1802-19B6-45ED-B327-C2C2D031F064}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A78A1802-19B6-45ED-B327-C2C2D031F064}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A78A1802-19B6-45ED-B327-C2C2D031F064}.Release|Any CPU.Build.0 = Release|Any CPU
-		{733225DD-D327-4711-B30E-33F71384BFEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{733225DD-D327-4711-B30E-33F71384BFEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{733225DD-D327-4711-B30E-33F71384BFEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{733225DD-D327-4711-B30E-33F71384BFEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
