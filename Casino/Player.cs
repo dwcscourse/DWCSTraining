@@ -8,7 +8,7 @@ namespace Casino
 {
     class Player
     {
-        private Random rnd = new Random();
+        //private Random rnd = new Random();
         private string name;
         public Player(string name)
         {
@@ -22,7 +22,7 @@ namespace Casino
             }
         }
         
-        public int ThrowDice()
+        public int ThrowDice(Random rnd)
         {
             return rnd.Next(1, 7);            
         }
