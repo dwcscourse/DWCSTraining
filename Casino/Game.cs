@@ -20,11 +20,11 @@ namespace Casino
         {
             int max=0;
             string winner = "";
-            bool isDuplicate = true;
+            bool isDuplicate = false;
 
-            while (!isDuplicate)
+            do //????
             {
-                foreach (Player player in players)
+                foreach (var player in players)
                 {
                     int dice = player.ThrowDice();
                     if (dice > max)
@@ -35,9 +35,10 @@ namespace Casino
                     else if (dice == max)
                     {
                         isDuplicate = true;
-                    }               
+                    }
                 }
             }
+            while (!isDuplicate);
                 return winner;
         }
 
