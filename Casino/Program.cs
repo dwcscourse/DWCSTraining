@@ -10,7 +10,9 @@ namespace Casino
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Please, enter number of players: ");
             int numberOfPlayers = int.Parse(Console.ReadLine());
+            Console.WriteLine("Please, enter number of rounds: ");
             int numberOfRounds = int.Parse(Console.ReadLine());
 
             List<Player> players = new List<Player>();
@@ -26,11 +28,7 @@ namespace Casino
 
             string winner = game.PlayGame();
 
-            Console.WriteLine(winner);
-
-
-
-
+            Console.WriteLine($"The winner is {winner}!!!");
         }
     }
 }
