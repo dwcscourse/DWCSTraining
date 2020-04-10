@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Casino
 {
@@ -69,28 +70,37 @@ namespace Casino
             }
 
             Dictionary<string, int> dictionary = CountElementsOfList(winnersOfRounds);
+
+            List<string> list = dictionary
+                .GroupBy(x => x.Value)
+                .Aggregate((x1, x2) => x1.Key > x2.Key ? x1 : x2)
+                .Select(x => x.Key).ToList();
+
+
             string gameWinner = "";
-            List<Player> playersWithSameResults = new List<Player>();
+            //List<Player> playersWithSameResults = new List<Player>();
 
             int countMax = 0;
-            int maxWonRounds = 0;
+            //int maxWonRounds = 0;
 
-            foreach (KeyValuePair<string, int> pair in dictionary)
-            {
-                Console.WriteLine($"The score of {pair.Key} is {pair.Value}");
-                if (pair.Value > maxWonRounds)
-                {
-                    maxWonRounds = pair.Value;
-                    gameWinner = pair.Key;
-                    playersWithSameResults.Add(new Player(pair.Key));
-                    countMax = 0;
-                }
-                else if (pair.Value == maxWonRounds)
-                {
-                    countMax++;
-                    playersWithSameResults.Add(new Player(pair.Key));
-                }              
-            }
+
+
+            //foreach (KeyValuePair<string, int> pair in dictionary)
+            //{
+            //    Console.WriteLine($"The score of {pair.Key} is {pair.Value}");
+            //    if (pair.Value > maxWonRounds)
+            //    {
+            //        maxWonRounds = pair.Value;
+            //        gameWinner = pair.Key;
+            //        playersWithSameResults.Add(new Player(pair.Key));
+            //        countMax = 0;
+            //    }
+            //    else if (pair.Value == maxWonRounds)
+            //    {
+            //        countMax++;
+            //        playersWithSameResults.Add(new Player(pair.Key));
+            //    }              
+            //}
 
             if (countMax >= 1)
             {
