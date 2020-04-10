@@ -31,27 +31,57 @@ namespace Animals
                     break;
                 }
 
-                Console.WriteLine($"Enter name, age and gender of the {kindOfAnimal}");
-                string phrase = Console.ReadLine();
-                string[] words = phrase.Split(',').Select(a => a.Trim()).ToArray();
-                
-                if (words.Length < 2)
-                {
-                    throw new Exception("Invalid input!");
-                }
-                
-                if (words.Contains("Beast!")) {
-                    break;
-                }
 
-                name = words[0];
-                age = int.Parse(words[1]);
-                gender = words[2];
-
-                if (name == "" || name ==" " || age < 0 || (gender != "female"  && gender !="male"))
+                if (kindOfAnimal == "Dog" || kindOfAnimal == "Frog" || kindOfAnimal == "Cat")
                 {
-                    throw new Exception("Invalid input!");
+                    Console.WriteLine($"Enter name, age and gender of the {kindOfAnimal}");
+                    string phrase = Console.ReadLine();
+                    string[] words = phrase.Split(',').Select(a => a.Trim()).ToArray();
+
+                    if (words.Length < 2)
+                    {
+                        throw new Exception("Invalid input!");
+                    }
+
+                    if (words.Contains("Beast!"))
+                    {
+                        break;
+                    }
+
+                    name = words[0];
+                    age = int.Parse(words[1]);
+                    gender = words[2];
+
+                    if (name == "" || name == " " || age < 0 || (gender != "female" && gender != "male"))
+                    {
+                        throw new Exception("Invalid input!");
+                    }
                 }
+                else if (kindOfAnimal == "Kitten" || kindOfAnimal == "Tomcat")
+                {
+                    Console.WriteLine($"Enter name and age of the {kindOfAnimal}");
+                    string phrase = Console.ReadLine();
+                    string[] words = phrase.Split(',').Select(a => a.Trim()).ToArray();
+
+                    if (words.Length < 1)
+                    {
+                        throw new Exception("Invalid input!");
+                    }
+
+                    if (words.Contains("Beast!"))
+                    {
+                        break;
+                    }
+
+                    name = words[0];
+                    age = int.Parse(words[1]);
+
+                    if (name == "" || name == " " || age < 0 )
+                    {
+                        throw new Exception("Invalid input!");
+                    }
+                }
+                
 
                 AnimalsProducingSounds animal = null;
                 switch (kindOfAnimal)

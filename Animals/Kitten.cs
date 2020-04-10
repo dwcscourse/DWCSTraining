@@ -16,7 +16,7 @@ namespace Animals
 
         public override void ProduceSound()
         {
-            base.ProduceSound();
+            //base.ProduceSound();
             Console.WriteLine("Mial");
         }
 
