@@ -8,15 +8,6 @@ namespace Animals
 {
     class Program
     {
-        public enum TypeOfAnimal
-        {
-            Dog,
-            Frog,
-            Cat,
-            Kitten,
-            Tomcat
-        }
-
         static void Main(string[] args)
         {
             string kindOfAnimal = "";           
@@ -26,7 +17,7 @@ namespace Animals
 
             while (true)
             {
-                Console.WriteLine("Enter kind of animal (Dog, Frog, Cat, Kitten or Tomcat) to create an animal or \"Beast!\" for exit");
+                Console.WriteLine("Enter kind of animal - Dog, Frog, Cat, Kitten or Tomcat or \"Beast!\" for exit");
                 kindOfAnimal = Console.ReadLine();
 
                 if (kindOfAnimal.Equals("Beast!"))
@@ -38,20 +29,22 @@ namespace Animals
                 {
                     throw new Exception("Invalid input!");
                 }
-
-                Console.WriteLine($"Enter name, age and gender of the {kindOfAnimal}");
-                string phrase = Console.ReadLine();
-                string[] words = phrase.Split(',').Select(a => a.Trim()).ToArray();
+              
                 int expectedLength = 0;
 
                 if (kindOfAnimal == "Dog" || kindOfAnimal == "Frog" || kindOfAnimal == "Cat")
                 {
+                    Console.WriteLine($"Enter name, age and gender of the {kindOfAnimal}");
                     expectedLength = 3;                                                                           
                 }
                 else 
                 {
+                    Console.WriteLine($"Enter name and age of the {kindOfAnimal}");
                     expectedLength = 2;                 
                 }
+
+                string phrase = Console.ReadLine();
+                string[] words = phrase.Split(',').Select(a => a.Trim()).ToArray();
 
                 if (words.Length < expectedLength)
                 {
@@ -65,11 +58,6 @@ namespace Animals
                 if (expectedLength == 3)
                 {
                     gender = words[2];
-                }
-
-                if (name == "" || name == " " || age < 0 || (expectedLength ==3 && gender != "female" && gender != "male"))
-                {
-                    throw new Exception("Invalid input!");
                 }
 
                 AnimalsProducingSounds animal = null;
@@ -91,6 +79,7 @@ namespace Animals
                         animal = new Tomcat(name, age);
                         break;
                 }
+                animal.ValidateInput(name, age, gender);
                 allAnimals.Add(animal);
             }
 
@@ -99,6 +88,8 @@ namespace Animals
                 animal.PrintResults();
                 animal.ProduceSound();
             }
+
+            
         }
     }
 }

@@ -16,8 +16,12 @@ namespace Animals
 
         public override void ProduceSound()
         {
-            //base.ProduceSound();
             Console.WriteLine("Give me one million b***h");
+        }
+
+        public override void ValidateInput(string nameOfAnimal, int age, string gender)
+        {
+            base.ValidateInput(nameOfAnimal, age, "male");
         }
 
         public override void PrintResults()

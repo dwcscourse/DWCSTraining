@@ -26,5 +26,13 @@ namespace Animals
             Console.WriteLine(kindOfAnimal);
             Console.WriteLine("{0} {1} {2}", nameOfAnimal, age, gender);
         }
+
+        public virtual void ValidateInput(string nameOfAnimal, int age, string gender)
+        {
+            if (nameOfAnimal == "" || nameOfAnimal == " " || age < 0 ||  gender != "female" && gender != "male")
+            {
+                throw new Exception("Invalid input!");
+            }
+        }
     }
 }

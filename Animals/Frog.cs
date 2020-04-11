@@ -15,10 +15,13 @@ namespace Animals
 
         public override void ProduceSound()
         {
-            base.ProduceSound();
             Console.WriteLine("Frogggg");
         }
 
+        public override void ValidateInput(string nameOfAnimal, int age, string gender)
+        {
+            base.ValidateInput(nameOfAnimal, age, gender);
+        }
         public override void PrintResults()
         {
             base.PrintResults();

@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace Animals
 {
-    class AnimalsProducingSounds : Animal
+    abstract class AnimalsProducingSounds : Animal
     {
         public AnimalsProducingSounds(string kindOfAnimal, string nameOfAnimal, int age, string gender) : 
             base (kindOfAnimal, nameOfAnimal, age, gender)
         {
         }
 
-        public virtual void ProduceSound()
-        { 
+        public abstract void ProduceSound();
+
+        public override void ValidateInput(string nameOfAnimal, int age, string gender)
+        {
+            base.ValidateInput(nameOfAnimal, age, gender);
         }
 
         public override void PrintResults()
