@@ -8,31 +8,25 @@ namespace Animals
 {
     class Program
     {
+        static string[] supportedAnimals = new string[] { "Dog", "Frog", "Cat", "Kitten", "Tomcat", "Beast!"};
+
         static void Main(string[] args)
         {
             string kindOfAnimal = "";           
-
-            string[] supportedAnimals = new string[] { "Dog" ,  "Frog", "Cat", "Kitten", "Tomcat"};
             List<AnimalsProducingSounds> allAnimals = new List<AnimalsProducingSounds>();
 
             while (true)
             {
                 Console.WriteLine("Enter kind of animal - Dog, Frog, Cat, Kitten or Tomcat or \"Beast!\" for exit");
-                kindOfAnimal = Console.ReadLine();
+                kindOfAnimal = Console.ReadLine();               
+                ValidateKindOfAnimal(kindOfAnimal);
 
+                int expectedLength = 0;
                 if (kindOfAnimal.Equals("Beast!"))
                 {
                     break;
                 }
-
-                if (!supportedAnimals.Contains(kindOfAnimal))
-                {
-                    throw new Exception("Invalid input!");
-                }
-              
-                int expectedLength = 0;
-
-                if (kindOfAnimal == "Dog" || kindOfAnimal == "Frog" || kindOfAnimal == "Cat")
+                else if (kindOfAnimal == "Dog" || kindOfAnimal == "Frog" || kindOfAnimal == "Cat")
                 {
                     Console.WriteLine($"Enter name, age and gender of the {kindOfAnimal}");
                     expectedLength = 3;                                                                           
@@ -46,11 +40,8 @@ namespace Animals
                 string phrase = Console.ReadLine();
                 string[] words = phrase.Split(',').Select(a => a.Trim()).ToArray();
 
-                if (words.Length < expectedLength)
-                {
-                    throw new Exception("Invalid input!");
-                }
-
+                CheckExpectedLengthOfArray(words, expectedLength);
+               
                 string name = words[0];
                 int age = int.Parse(words[1]);
                 string gender = "";
@@ -87,9 +78,24 @@ namespace Animals
             {
                 animal.PrintResults();
                 animal.ProduceSound();
+            }          
+        }
+
+        private static void CheckExpectedLengthOfArray(Array array1, int expectedLength)
+        {
+            if (array1.Length != expectedLength)
+            {
+                throw new Exception("Invalid input!");
             }
 
-            
+        }
+
+        public static void ValidateKindOfAnimal(string kindOfAnimal)
+        {           
+            if (!supportedAnimals.Contains(kindOfAnimal))
+            {
+                throw new Exception("Invalid input!");
+            }
         }
     }
 }
