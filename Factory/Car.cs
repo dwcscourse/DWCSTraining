@@ -17,11 +17,15 @@ namespace Factory
             this.regNumber = regNumber;
         }
 
-        public virtual void PrintResults()
+        //public virtual void PrintResults()
+        //{
+        //    Console.Write($"{model} - {regNumber}\n");
+        //}
+
+        public override string ToString()
         {
-            Console.Write($"{model} - {regNumber}\n");
+            return $"{model} - {regNumber}\n";
         }
-        
 
     }
 }

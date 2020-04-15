@@ -15,10 +15,15 @@ namespace Factory
             this.brand = "Merzedes";
         }
 
-        public override void PrintResults()
+        //public override void PrintResults()
+        //{
+        //    Console.WriteLine("The brand is Merzedes.");
+        //    base.PrintResults();
+        //}
+
+        public override string ToString()
         {
-            Console.WriteLine("The brand is Merzedes.");
-            base.PrintResults();
+            return base.ToString() + "The brand is Merzedes.";
         }
     }
 }

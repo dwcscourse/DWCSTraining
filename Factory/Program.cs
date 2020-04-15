@@ -34,9 +34,8 @@ namespace Factory
 
             foreach (Car car in cars)
             {
-                car.PrintResults();
+                Console.WriteLine($"Car info: {car}");
             }
-
         }
 
         static Brand Convert(string brand)

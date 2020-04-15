@@ -14,10 +14,15 @@ namespace Factory
             this.numberOfSeats = numberOfSeats;
         }
 
-        public override void PrintResults()
+        //public override void PrintResults()
+        //{
+        //    Console.WriteLine("The hatchback model is: ");
+        //    base.PrintResults();
+        //}
+
+        public override string ToString()
         {
-            Console.WriteLine("The hatchback model is: ");
-            base.PrintResults();
+            return base.ToString() + $"The hatchback number of seats is: {numberOfSeats}";
         }
     }
 }

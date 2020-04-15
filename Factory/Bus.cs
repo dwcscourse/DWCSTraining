@@ -14,10 +14,15 @@ namespace Factory
             this.load = load;
         }
 
-        public override void PrintResults()
+        //public override void PrintResults()
+        //{
+        //    Console.WriteLine("The bus model is: ");
+        //    base.PrintResults();
+        //}
+
+        public override string ToString()
         {
-            Console.WriteLine("The bus model is: ");
-            base.PrintResults();
+            return base.ToString() + $"The bus load is: {load}";
         }
     }
 }
