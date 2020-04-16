@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Factory
 {
-    public abstract class Factory
+    public interface IFactory
     {
-        public abstract Bus CreateBus(double load, string model, string regNumber);
-        public abstract Hatchback CreateHatchback(int numberOfSeats, string model, string regNumber);
-
+        Bus CreateBus(double load, string model, string regNumber);
+        Hatchback CreateHatchback(int numberOfSeats, string model, string regNumber);
     }
 }

@@ -20,7 +20,7 @@ namespace Factory
             List<Car> cars = new List<Car>();
 
             Brand brand1 = Convert(brand);
-            Factory factory = CreateFactory(brand1);
+            IFactory factory = CreateFactory(brand1);
 
             for (int i = 1; i <= numberOfBus; i++)
             {
@@ -55,7 +55,7 @@ namespace Factory
 
         }
 
-        static Factory CreateFactory(Brand brand)
+        static IFactory CreateFactory(Brand brand)
         {
 
             if (brand == Brand.Merzedes)
