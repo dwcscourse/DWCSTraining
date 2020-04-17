@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="Bus.cs" />
     <Compile Include="Car.cs" />
-    <Compile Include="Factory.cs" />
+    <Compile Include="IFactory.cs" />
     <Compile Include="Hatchback.cs" />
     <Compile Include="MerzedesBus.cs" />
     <Compile Include="MerzedesFactory.cs" />

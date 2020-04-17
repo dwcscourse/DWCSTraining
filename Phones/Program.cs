@@ -16,8 +16,10 @@ namespace Phones
             string inputURLs = Console.ReadLine();
             string[] urls = inputURLs.Split(',');
 
-            ISmartphone phone = new Nokia();
-            
+            ISmartphone phone = new Smartphone();
+            ISmartphone phone1 = new Nokia();
+            Nokia phone2 = new Nokia();
+             
             foreach (string number in numbers)
             {
                 Console.WriteLine(phone.Calling(number));
