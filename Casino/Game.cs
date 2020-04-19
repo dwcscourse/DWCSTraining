@@ -79,7 +79,7 @@ namespace Casino
 
 
             string gameWinner = "";
-            
+
             List<Player> playersWithSameResults = new List<Player>();
 
             int countMax = 0;
