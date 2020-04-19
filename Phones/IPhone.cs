@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Casino
+namespace Phones
 {
-    class Program
+    public interface IPhone
     {
-        static void Main(string[] args)
-        {
-        }
+        string Calling(string number);
     }
 }
