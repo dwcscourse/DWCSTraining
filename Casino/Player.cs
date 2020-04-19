@@ -8,7 +8,7 @@ namespace Casino
 {
     class Player
     {
-        //private Random rnd = new Random();
+        private Random rnd = new Random();
         private string name;
         public Player(string name)
         {
@@ -21,8 +21,13 @@ namespace Casino
                 return this.name;
             }
         }
-        
+<<<<<<< HEAD
+       
         public int ThrowDice(Random rnd)
+=======
+        
+        public int ThrowDice()
+>>>>>>> parent of b06ac3a... HW Tsveti - Casino & Bank Account
         {
             return rnd.Next(1, 7);            
         }

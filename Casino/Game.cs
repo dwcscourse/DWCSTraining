@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Casino
 {
     class Game
     {
-        private Random rnd = new Random();
         private int rounds;
         private List<Player> players;
         public Game(int rounds, List<Player> players)
@@ -15,40 +16,36 @@ namespace Casino
             this.players = players;
         }
 
-        private string PlayRound(List<Player> players)
+        private string PlayRound()
         {
-            int max = 0;
+            int max=0;
             string winner = "";
-            bool haveWinner = false;
+            bool isDuplicate = true;
 
-            while (!haveWinner)
+            while (!isDuplicate)
             {
-                List<int> thrownDices = new List<int>();
+<<<<<<< HEAD
+                int countMax = 0;
 
                 foreach (var player in players)
                 {
                     int dice = player.ThrowDice(rnd);
-                    thrownDices.Add(dice);
 
                     Console.WriteLine($"{player.Name} throws {dice}");
 
-                    if (dice > max)
-                    {
-                        max = dice;
-                        winner = player.Name;
-                    }                                     
-                }
-
-                int countMax = 0;
-                foreach (var thrownDice in thrownDices)
-                {
-                    if (thrownDice == max)
+                    if (dice == max)
                     {
                         countMax++;
                     }
+                    else if (dice > max)
+                    {
+                        max = dice;
+                        winner = player.Name;
+                        countMax = 0;
+                    }
                 }
 
-                if (countMax > 1)
+                if (countMax >= 1)
                 {
                     haveWinner = false;
                     max = 0;
@@ -57,53 +54,89 @@ namespace Casino
                 else
                 {
                     haveWinner = true;
+=======
+                foreach (Player player in players)
+                {
+                    int dice = player.ThrowDice();
+                    if (dice > max)
+                    {
+                        max = dice;
+                        winner = player.Name;
+                    }
+                    else if (dice == max)
+                    {
+                        isDuplicate = true;
+                    }               
+>>>>>>> parent of b06ac3a... HW Tsveti - Casino & Bank Account
                 }
             }
-
-            return winner;
+                return winner;
         }
 
         public string PlayGame()
         {
             List<string> winnersOfRounds = new List<string>();
+            var dictionary = CountElementsOfList(winnersOfRounds);
 
             for (int i = 1; i <= rounds; i++)
             {
-                string winnersOfRound = PlayRound(this.players);
-                winnersOfRounds.Add(winnersOfRound);
-                Console.WriteLine($"The winner of Round {i} is {winnersOfRound}");
+                winnersOfRounds.Add(PlayRound());                  
             }
 
+<<<<<<< HEAD
             Dictionary<string, int> dictionary = CountElementsOfList(winnersOfRounds);
-            dictionary = dictionary.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
 
-            int winnerScore = dictionary.ElementAt(0).Value;
+            // Съкратен начин за взимате на максималните стойности от dictionary (групира по value, намиран групата с  най-висока стойност на value И я записва в лист)
+            //List<Player> list = dictionary
+            //    .GroupBy(x => x.Value)
+            //    .Aggregate((x1, x2) => x1.Key > x2.Key ? x1 : x2)
+            //    .Select(x => new Player(x.Key)).ToList();
+
+
             string gameWinner = "";
-
+            
             List<Player> playersWithSameResults = new List<Player>();
+
+            int countMax = 0;
+            int maxWonRounds = 0;
 
             foreach (KeyValuePair<string, int> pair in dictionary)
             {
                 Console.WriteLine($"The score of {pair.Key} is {pair.Value}");
+                if (pair.Value > maxWonRounds)
+                {
+                    maxWonRounds = pair.Value;
+                    gameWinner = pair.Key;
+                    playersWithSameResults.Add(new Player(pair.Key));
+                    countMax = 0;
+                }
+                else if (pair.Value == maxWonRounds)
+                {
+                    countMax++;
+                    playersWithSameResults.Add(new Player(pair.Key));
+                }
             }
 
-            if ((dictionary.Count > 1) && (dictionary.ElementAt(0).Value == dictionary.ElementAt(1).Value))
+            if (countMax >= 1)
             {
-                foreach (KeyValuePair<string, int> winner in dictionary)
-                {
-                    if (winner.Value == winnerScore)
-                    {
-                        playersWithSameResults.Add(new Player(winner.Key));
-                    }
-                }
-
                 Console.WriteLine("The players with the same maximum score, play another round !!!!!");
                 gameWinner = PlayRound(playersWithSameResults);
             }
-            else
+=======
+            int temp = 0;
+            string gameWinner = "";
+           
+            foreach (KeyValuePair<string, int> winner in dictionary)
             {
-                gameWinner = dictionary.ElementAt(0).Key;
+                if (temp < winner.Value)
+                {
+                    temp = winner.Value;
+                    gameWinner = winner.Key;
+                }                
             }
+            
+            //Add case with two winners
+>>>>>>> parent of b06ac3a... HW Tsveti - Casino & Bank Account
 
             return gameWinner;
         }
@@ -111,8 +144,8 @@ namespace Casino
         private Dictionary<string, int> CountElementsOfList(List<string> listWithNames)
         {
             listWithNames.Sort();
-            Dictionary<string, int> dictionary = new Dictionary<string, int>();
-
+            var dictionary = new Dictionary<string, int>();
+            
             foreach (var name in listWithNames)
             {
                 if (!dictionary.ContainsKey(name))
@@ -122,11 +155,11 @@ namespace Casino
                 else
                 {
                     dictionary.TryGetValue(name, out int count);
-                    dictionary[name] = count + 1;
+                    dictionary[name] = count + 1;                 
                 }
             }
 
             return dictionary;
-        }
+        }           
     }
 }

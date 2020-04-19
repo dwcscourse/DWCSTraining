@@ -10,9 +10,9 @@ namespace Casino
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please, enter number of players: ");
+<<<<<<< HEAD
+=======
             int numberOfPlayers = int.Parse(Console.ReadLine());
-            Console.WriteLine("Please, enter number of rounds: ");
             int numberOfRounds = int.Parse(Console.ReadLine());
 
             List<Player> players = new List<Player>();
@@ -28,7 +28,12 @@ namespace Casino
 
             string winner = game.PlayGame();
 
-            Console.WriteLine($"The winner is {winner}!!!");
+            Console.WriteLine(winner);
+
+
+
+
+>>>>>>> parent of b06ac3a... HW Tsveti - Casino & Bank Account
         }
     }
 }
