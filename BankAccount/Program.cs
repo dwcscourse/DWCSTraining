@@ -28,6 +28,7 @@ namespace BankAccount
             bool shouldContinue = true;
             while (shouldContinue)
             {
+                shouldContinue = false;
                 Console.WriteLine("Please choose what you want to do: \n" +
                 "for deposit, press 1, \n" +
                 "for withdrawl, press 2, \n" +
@@ -42,27 +43,31 @@ namespace BankAccount
                         Console.WriteLine("Enter amount of deposit: ");
                         amount = decimal.Parse(Console.ReadLine());
                         primaryAccount.Deposit(amount);
+                        shouldContinue = true;
                         break;
                     case 2:
                         Console.WriteLine("Enter amount of withdrawal: ");
                         amount = decimal.Parse(Console.ReadLine());
                         primaryAccount.Withdrawl(amount);
+                        shouldContinue = true;
                         break;
                     case 3:
                         Console.WriteLine("Enter amount to be transferred: ");
                         amount = decimal.Parse(Console.ReadLine());
                         primaryAccount.Transfer(amount, backupAccount);
+                        shouldContinue = true;
                         break;
                     case 4:
                         Console.WriteLine("Enter amount to be transferred: ");
                         amount = decimal.Parse(Console.ReadLine());
                         backupAccount.Transfer(amount, primaryAccount);
+                        shouldContinue = true;
                         break;
                     case 9:
-                        shouldContinue = false;
                         break;
                     default:
                         Console.WriteLine("Please, choose 1, 2, 3 0r 4 to continue or 9 to exit");
+                        shouldContinue = true;
                         break;
                 }
             }
