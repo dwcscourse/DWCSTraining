@@ -27,5 +27,10 @@ namespace IntroduceYourself
             base.IntroduceYourself();
             Console.WriteLine($"I study in {university} for a {specialty}");
         }
+
+        public void SaySomething()
+        {
+            Console.WriteLine("Say something!");
+        }
     }
 }

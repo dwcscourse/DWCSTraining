@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C8C39FDC-976A-4617-9B5F-4643E72A138C}</ProjectGuid>
+    <ProjectGuid>{0C6D4A90-B1F4-4253-BE87-5AC452A6B8B4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Factory</RootNamespace>
-    <AssemblyName>Factory</AssemblyName>
+    <RootNamespace>Phones</RootNamespace>
+    <AssemblyName>Phones</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,19 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bus.cs" />
-    <Compile Include="Car.cs" />
-    <Compile Include="IFactory.cs" />
-    <Compile Include="Hatchback.cs" />
-    <Compile Include="MerzedesBus.cs" />
-    <Compile Include="MerzedesFactory.cs" />
-    <Compile Include="MerzedesHatchback.cs" />
-    <Compile Include="OpelBus.cs" />
-    <Compile Include="OpelFactory.cs" />
-    <Compile Include="OpelHatchback.cs" />
+    <Compile Include="IPhone.cs" />
+    <Compile Include="ISmartphone.cs" />
+    <Compile Include="Nokia.cs" />
+    <Compile Include="Phone.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Brand.cs" />
+    <Compile Include="Smartphone.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
