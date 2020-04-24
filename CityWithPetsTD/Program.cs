@@ -36,7 +36,7 @@ namespace CityWithPetsTD
             List<DateTime> birthdaysList = city.GetBirthdaysForAYear(city.InhabitantsWithBirthday, year);
             foreach (DateTime birtday in birthdaysList)
             {
-                Console.WriteLine($"{birtday.Day}/{birtday.Month}/{birtday.Year}");
+                Console.WriteLine($"{birtday.ToString("dd/MM/yyyy")}");
             }
         }
     }

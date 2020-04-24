@@ -69,22 +69,23 @@ namespace CityWithPetsTD
                     citizens.Add(new Robot(inhabitantData[1], inhabitantData[2]));
                 }
             }
-
         }
 
         public List<string> CheckForFakeID(List<ICitizen> inhabitants, string lastDigitsOfFakeID)
         {
-            List<string> idsList = new List<string>();
+            return inhabitants.Where(x => x.ID.EndsWith(lastDigitsOfFakeID)).Select(x => x.ID).ToList();
+                        
+            //List<string> idsList = new List<string>();
 
-            foreach (ICitizen inhabitant in inhabitants)
-            {
-                if (inhabitant.ID.EndsWith(lastDigitsOfFakeID))
-                {
-                    idsList.Add(inhabitant.ID);
-                }
-            }
+            //foreach (ICitizen inhabitant in inhabitants)
+            //{
+            //    if (inhabitant.ID.EndsWith(lastDigitsOfFakeID))
+            //    {
+            //        idsList.Add(inhabitant.ID);
+            //    }
+            //}
 
-            return idsList;
+            //return idsList;
         }
 
         public List<DateTime> GetBirthdaysForAYear(List<IInhabitantWithBirthday> inhabitantsWithBirthday, int year)
