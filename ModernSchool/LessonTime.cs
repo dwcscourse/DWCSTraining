@@ -25,8 +25,25 @@ namespace ModernSchool
 
         public bool Compare(LessonTime lessonTime)
         {
-            return lessonTime.startingHour >= this.startingHour && lessonTime.endHour <= this.endHour;            
+            bool result = (lessonTime.startingHour >= this.startingHour &&
+                lessonTime.startingHour < this.endHour) ||
+                (lessonTime.endHour > this.startingHour &&
+                lessonTime.endHour <= this.endHour);
+
+            return result;
+        }
+
+        public static int CompareLessonTimes(LessonTime l1, LessonTime l2)
+        {
+            if (l1.startingHour < l2.startingHour)
+            {
+                return -1;
+            }
+            else if (l1.startingHour > l2.startingHour)
+            {
+                return 1;
+            }
+            return 0;
         }
     }
-
 }
