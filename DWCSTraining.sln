@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phones", "Phones\Phones.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityWithPetsTD", "CityWithPetsTD\CityWithPetsTD.csproj", "{C25598AD-DFAC-48A9-BDB8-917678E85ADE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoldierTD", "Soldier\SoldierTD.csproj", "{0BC57BDC-B021-482A-95E9-C26D70B0EB88}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{C25598AD-DFAC-48A9-BDB8-917678E85ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C25598AD-DFAC-48A9-BDB8-917678E85ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C25598AD-DFAC-48A9-BDB8-917678E85ADE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BC57BDC-B021-482A-95E9-C26D70B0EB88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BC57BDC-B021-482A-95E9-C26D70B0EB88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BC57BDC-B021-482A-95E9-C26D70B0EB88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BC57BDC-B021-482A-95E9-C26D70B0EB88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

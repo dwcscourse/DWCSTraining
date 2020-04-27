@@ -15,8 +15,6 @@ namespace CityWithPetsTD
 
             while (input != "End")
             {
-                string[] inputData = input.Split(' ');
-                
                 city.CreateInhabitants(input);
 
                 input = Console.ReadLine();
