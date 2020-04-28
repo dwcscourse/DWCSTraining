@@ -40,20 +40,12 @@ namespace Soldier
             }
             else if (inputData[0] == "LeutenantGeneral")
             {
-                List<Private> priateIds = new List<Private>();
 
-                for (int i = 5; i < inputData.Length; i++)
-                {
-                    foreach (var soldier in soldiers)
-                    {
-                        if (int.Parse(inputData[i]) == soldier.ID)
-                        {
-                            priateIds.Add((Private)soldier);
-                        }
-                    }
-                }
+                List<Private> priates = CreateListOfPrivate(input, soldiers);
 
-                return new LeutenantGeneral(int.Parse(inputData[1]), inputData[2], inputData[3], double.Parse(inputData[4]), priateIds);
+                LeutenantGeneral leutenantGeneral = new LeutenantGeneral(int.Parse(inputData[1]), inputData[2], inputData[3], double.Parse(inputData[4]), priates);
+
+                return leutenantGeneral;
             }
             else if (inputData[0] == "Engineer")
             {
@@ -83,6 +75,24 @@ namespace Soldier
         private static bool isCorpsInputCorrect(string corpInput)
         {
             return corpInput == "Airforces" || corpInput == "Marines";
+        }
+
+        private static List<Private> CreateListOfPrivate(string input, List<Soldier> soldiers)
+        {
+            List<Private> priates = new List<Private>();
+            string[] privatesInput = input.Split(' ');
+            
+            for (int i = 5; i < privatesInput.Length; i++)
+            {
+                foreach (var soldier in soldiers)
+                {
+                    if (int.Parse(privatesInput[i]) == soldier.ID)
+                    {
+                        priates.Add((Private)soldier);
+                    }
+                }
+            }
+            return priates;
         }
 
         private static List<Repair> CreateLisfOfRepairs(string input)
