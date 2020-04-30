@@ -8,8 +8,8 @@ namespace Soldier
 {
     public class Engineer : Private, ISpecialisedSoldier
     {
-        private string corps;
-        public string Corps
+        private Corps corps;
+        public Corps Corps
         {
             get
             {
@@ -31,7 +31,7 @@ namespace Soldier
             }
         }
 
-        public Engineer(int id, string firstName, string lastName, double salary, string corps) : base(id, firstName, lastName, salary)
+        public Engineer(int id, string firstName, string lastName, double salary, Corps corps) : base(id, firstName, lastName, salary)
         {
             this.corps = corps;
         }
@@ -47,5 +47,19 @@ namespace Soldier
 
             return base.ToString() + engineerOutput;
         }
+
+        public List<Repair> CreateLisfOfRepairs(string input)
+        {
+            List<Repair> repairs = new List<Repair>();
+            string[] repairsInput = input.Split(' ');
+
+            for (int i = 6; i < repairsInput.Length; i += 2)
+            {
+                repairs.Add(new Repair(repairsInput[i], int.Parse(repairsInput[i + 1])));
+            }
+
+            return repairs;
+        }
+
     }
 }

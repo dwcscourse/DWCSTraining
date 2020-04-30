@@ -13,30 +13,32 @@ namespace Soldier
 
             string input = Console.ReadLine();
 
-            List<Soldier> soldiers = new List<Soldier>();
+            List<ISoldier> soldiers = new List<ISoldier>();
 
             while (input != "End")
             {
                 string[] inputData = input.Split(' ');
-                if ((inputData[0] != "Engineer" && inputData[0] != "Commando") || ((inputData[0] == "Engineer" || inputData[0] == "Commando") && isCorpsInputCorrect(inputData[5]) == true))
+                if ((inputData[0] != "Engineer" && inputData[0] != "Commando") || ((inputData[0] == "Engineer" || inputData[0] == "Commando") && isCorpsInputCorrect((Corps) Enum.Parse(typeof(Corps),inputData[5])) == true))
                 {
                     soldiers.Add(CreateSoldier(input, soldiers));
                 }
                 input = Console.ReadLine();
             }
-
+            
             foreach (Soldier soldier in soldiers)
             {
                 Console.WriteLine(soldier.ToString());
             }
         }
 
-        private static Soldier CreateSoldier(string input, List<Soldier> soldiers)
+        private static Soldier CreateSoldier(string input, List<ISoldier> soldiers)
         {
             string[] inputData = input.Split(' ');
             if (inputData[0] == "Private")
             {
-                return new Private(int.Parse(inputData[1]), inputData[2], inputData[3], double.Parse(inputData[4]));
+                Private private1 = new Private(int.Parse(inputData[1]), inputData[2], inputData[3], double.Parse(inputData[4]));
+                Private.rota = "MyRota";
+                return private1;
             }
             else if (inputData[0] == "LeutenantGeneral")
             {
@@ -49,17 +51,18 @@ namespace Soldier
             }
             else if (inputData[0] == "Engineer")
             {
-                Engineer engineer = new Engineer(int.Parse(inputData[1]), inputData[2], inputData[3], double.Parse(inputData[4]), inputData[5]);
+                Engineer engineer = new Engineer(int.Parse(inputData[1]), inputData[2], inputData[3], double.Parse(inputData[4]), (Corps) Enum.Parse(typeof(Corps), inputData[5]));
 
-                engineer.Repairs = CreateLisfOfRepairs(input);
+                
+                engineer.Repairs = engineer.CreateLisfOfRepairs(input);
 
                 return engineer;
             }
             else if (inputData[0] == "Commando")
             {
-                Commando commando = new Commando(int.Parse(inputData[1]), inputData[2], inputData[3], double.Parse(inputData[4]), inputData[5]);
+                Commando commando = new Commando(int.Parse(inputData[1]), inputData[2], inputData[3], double.Parse(inputData[4]), (Corps) Enum.Parse(typeof(Corps),inputData[5]));
 
-                commando.Missions = CreateListOfMissions(input);
+                commando.Missions = commando.CreateListOfMissions(input);
                 return commando;
             }
             else if (inputData[0] == "Spy")
@@ -72,12 +75,12 @@ namespace Soldier
             }
         }
       
-        private static bool isCorpsInputCorrect(string corpInput)
+        private static bool isCorpsInputCorrect(Corps corpInput)
         {
-            return corpInput == "Airforces" || corpInput == "Marines";
+            return corpInput == Corps.Airforces || corpInput == Corps.Marines;
         }
 
-        private static List<Private> CreateListOfPrivate(string input, List<Soldier> soldiers)
+        private static List<Private> CreateListOfPrivate(string input, List<ISoldier> soldiers)
         {
             List<Private> priates = new List<Private>();
             string[] privatesInput = input.Split(' ');
@@ -94,35 +97,5 @@ namespace Soldier
             }
             return priates;
         }
-
-        private static List<Repair> CreateLisfOfRepairs(string input)
-        {
-            List<Repair> repairs = new List<Repair>();
-            string[] repairsInput = input.Split(' ');
-
-            for (int i = 6; i < repairsInput.Length; i+=2)
-            {
-                repairs.Add(new Repair(repairsInput[i], int.Parse(repairsInput[i + 1])));
-            }
-
-            return repairs;
-        }
-
-        private static List<Mission> CreateListOfMissions(string input)
-        {
-            List<Mission> missions = new List<Mission>();
-            string[] missionsInput = input.Split(' ');
-
-            for (int i = 6; i < missionsInput.Length; i+=2)
-            {
-                if (missionsInput[i+1] == "inProgress"  || missionsInput[i+1] == "Finished")
-                {
-                    missions.Add(new Mission(missionsInput[i], missionsInput[i + 1]));
-                }
-            }
-
-            return missions;
-        }
-
     }
 }

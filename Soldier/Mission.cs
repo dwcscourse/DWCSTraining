@@ -17,8 +17,8 @@ namespace Soldier
             }
         }
 
-        private string state;
-        public string State
+        private MissionStates state;
+        public MissionStates State
         {
             get
             {
@@ -26,7 +26,7 @@ namespace Soldier
             }
         }
 
-        public Mission(string codeName, string state)
+        public Mission(string codeName, MissionStates state)
         {
             this.codeName = codeName;
             this.state = state;
@@ -34,7 +34,7 @@ namespace Soldier
 
         public void CompleteMission()
         {
-            state = "Finished";
+            state = MissionStates.Finished;
         }
     }
 }

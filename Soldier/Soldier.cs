@@ -35,6 +35,7 @@ namespace Soldier
             }
         }
 
+
         public Soldier(int id, string firstName, string lastName)
         {
             this.id = id;
@@ -44,7 +45,7 @@ namespace Soldier
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"Name: {FirstName} {LastName} Id: {ID} ";
         }
     }
 }

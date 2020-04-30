@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Corps.cs" />
     <Compile Include="Commando.cs" />
     <Compile Include="Engineer.cs" />
     <Compile Include="IPrivate.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="ISpecialisedSoldier.cs" />
     <Compile Include="LeutenantGeneral.cs" />
     <Compile Include="Mission.cs" />
+    <Compile Include="MissionStates.cs" />
     <Compile Include="Private.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

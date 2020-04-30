@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Soldier
 {
     public class Commando : Private, ISpecialisedSoldier
     {
-        private string corps;
-        public string Corps
+        private Corps corps;
+        public Corps Corps
         {
             get 
             {
@@ -27,7 +28,7 @@ namespace Soldier
             }
         }
 
-        public Commando(int id, string firstName, string lastName, double salary, string corps) : base(id, firstName, lastName, salary)
+        public Commando(int id, string firstName, string lastName, double salary, Corps corps) : base(id, firstName, lastName, salary)
         {
             this.corps = corps;
         }
@@ -43,5 +44,22 @@ namespace Soldier
 
             return base.ToString() + commandoOutput;
         }
+
+        public List<Mission> CreateListOfMissions(string input)
+        {
+            List<Mission> missions = new List<Mission>();
+            string[] missionsInput = input.Split(' ');
+
+            for (int i = 6; i < missionsInput.Length; i += 2)
+            {
+                if (missionsInput[i + 1] == Convert.ToString(MissionStates.inProgress) || missionsInput[i + 1] == Convert.ToString(MissionStates.Finished))
+                {
+                    missions.Add(new Mission(missionsInput[i], (MissionStates)Enum.Parse(typeof(MissionStates), missionsInput[i + 1])));
+                }
+            }
+
+            return missions;
+        }
+
     }
 }

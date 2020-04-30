@@ -8,26 +8,26 @@ namespace Soldier
 {
     public class LeutenantGeneral : Private
     {
-        private List<Private> setOfPrivateIDs;
+        private List<Private> setOfPrivates;
 
-        public List<Private> SetOfPrivateIDs 
+        public List<Private> SetOfPrivates 
         {
             get
             {
-                return setOfPrivateIDs;
+                return setOfPrivates;
             }
         }
 
-        public LeutenantGeneral(int id, string firstName, string lastName, double salary, List<Private> privateIds) : base(id, firstName, lastName, salary)
+        public LeutenantGeneral(int id, string firstName, string lastName, double salary, List<Private> privates) : base(id, firstName, lastName, salary)
         {
-            this.setOfPrivateIDs = privateIds;
+            this.setOfPrivates = privates;
         }
 
         public override string ToString()
         {
             string leutenantGeneralOutpur = "\nPrivate:";
 
-            foreach (var privateID in SetOfPrivateIDs)
+            foreach (var privateID in SetOfPrivates)
             {
                 leutenantGeneralOutpur += $"\n Name: {privateID.FirstName} {privateID.LastName} Id: {privateID.ID} Salary: {privateID.Salary:f2}";
             }

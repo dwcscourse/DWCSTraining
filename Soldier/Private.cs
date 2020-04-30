@@ -23,9 +23,11 @@ namespace Soldier
             }
         }
 
+        public static string rota;
+
         public override string ToString()
         {
-            return $"Name: {FirstName} {LastName} Id: {ID} Salary: {Salary:f2}";
+            return base.ToString() + $"Salary: {Salary:f2}";
         }
     }
 }

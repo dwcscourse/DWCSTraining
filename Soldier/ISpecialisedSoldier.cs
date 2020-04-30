@@ -8,6 +8,6 @@ namespace Soldier
 {
     interface ISpecialisedSoldier 
     {
-        string Corps { get; }
+        Corps Corps { get; }
     }
 }
